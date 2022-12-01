@@ -22,7 +22,7 @@ fi
 
 echo "${FAINT}---------------------${NORMAL}"
 
-ruby "src/day${day}/part${part}.rb"
+ruby "src/day${day}/part${part}.rb" < "src/day${day}/part${part}.txt"
 
 echo "${FAINT}---------------------${NORMAL}"
 
