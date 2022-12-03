@@ -1,3 +1,5 @@
+#!/bin/sh
+
 day=$1
 part=$2
 
@@ -8,15 +10,15 @@ BOLD="\e[1m"
 FAINT="\e[2m"
 NORMAL="\e[0m"
 
-echo "${CYAN}${BOLD}AOC2022:${NORMAL} Initialising"
+echo "${CYAN}${BOLD}AOC2022:${NORMAL} initialising"
 
 if [ -z "${day}" ]; then 
-    echo "${RED}${BOLD}AOC2022:${NORMAL} Day must be specified\n\t Usage: run.sh [day](double-digits) [part](single-digits)"
+    echo "${RED}${BOLD}AOC2022:${NORMAL} day must be specified\n\t Usage: run.sh [day](double-digits) [part](single-digits)"
     exit 1
 fi
 
 if [ -z "${part}" ]; then 
-    echo "${RED}${BOLD}AOC2022:${NORMAL} Part must be specified\n\t Usage: run.sh [day](double-digits) [part](single-digits)"
+    echo "${RED}${BOLD}AOC2022:${NORMAL} part must be specified\n\t Usage: run.sh [day](double-digits) [part](single-digits)"
     exit 1
 fi
 
@@ -24,6 +26,12 @@ echo "${FAINT}---------------------${NORMAL}"
 
 ruby "src/day${day}/part${part}.rb" < "src/day${day}/part${part}.txt"
 
+if [ $? -ne 0 ]; then
+    echo "${FAINT}---------------------${NORMAL}"
+    echo "${RED}${BOLD}AOC2022:${NORMAL} error in middle of execution"
+    exit 1
+fi
+
 echo "${FAINT}---------------------${NORMAL}"
 
-echo "${GREEN}${BOLD}AOC2022:${NORMAL} Finished"
+echo "${GREEN}${BOLD}AOC2022:${NORMAL} finished"
