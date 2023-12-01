@@ -24,7 +24,7 @@ fi
 
 echo "${FAINT}---------------------${NORMAL}"
 
-ruby "src/day${day}/part${part}.rb" < "src/day${day}/part${part}.txt"
+ruby "src/day${day}/part${part}.rb" < "src/day${day}/input.txt"
 
 if [ $? -ne 0 ]; then
     echo "${FAINT}---------------------${NORMAL}"
